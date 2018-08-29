@@ -17,20 +17,25 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<String> arrayList;
+    //initilize the array
     String[] android_versions={"Alpha","Beta","Cupcake","Donut","Eclair","Froyo","Gingerbread","Honeycomb","Ice Cream Sandwitch","Jelly Bean","Kitkat","Lollipop","Marshmallow","Nougat","Oreo","Pie"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //set the title of toolbar
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Android Versions");
         setSupportActionBar(toolbar);
+        //initlize the recyclerview
         recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(this);
+        //create the string array
         arrayList=new ArrayList<String>();
         for(int i=0;i<android_versions.length;i++)
             arrayList.add(new String(android_versions[i]));
+        //create the object of custom adapter class
         MyAdapter adapter=new MyAdapter(arrayList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
