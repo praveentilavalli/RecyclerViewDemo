@@ -18,7 +18,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public MyAdapter(ArrayList<String> arrayList) {
         this.arraylist=arrayList;
     }
-
+//method to create the viewholder for each item
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item,parent,false);
@@ -26,17 +26,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    //method to bind the data
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
 
         holder.textview.setText(arraylist.get(position));
     }
 
+    //method to return the arraylist size
     @Override
     public int getItemCount() {
         return arraylist.size();
     }
 
+    //class for viewholder
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView textview;
